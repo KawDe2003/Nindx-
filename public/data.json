@@ -1,0 +1,144 @@
+{
+  "hotDeals": [
+    {
+      "id": 1,
+      "name": "2024 Nissan Rogue SV",
+      "trim": "AWD Premium",
+      "price": 389,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=800",
+      "specs": {
+        "months": "36 Mo",
+        "mileage": "10K Mi",
+        "down": "$0 Down",
+        "msrp": "$34,200"
+      }
+    },
+    {
+      "id": 2,
+      "name": "2024 Honda CR-V EX-L",
+      "trim": "Leather Seats",
+      "price": 415,
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1619682817481-e994891cd1f5?auto=format&fit=crop&q=80&w=800",
+      "specs": {
+        "months": "36 Mo",
+        "mileage": "12K Mi",
+        "down": "$999 Down",
+        "msrp": "$36,500"
+      }
+    },
+    {
+      "id": 3,
+      "name": "2024 BMW X5 sDrive40i",
+      "trim": "M Sport Package",
+      "price": 899,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800",
+      "specs": {
+        "months": "36 Mo",
+        "mileage": "7.5K Mi",
+        "down": "$2,500 Down",
+        "msrp": "$72,800"
+      }
+    },
+    {
+      "id": 4,
+      "name": "2024 Tesla Model Y",
+      "trim": "Long Range AWD",
+      "price": 520,
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&q=80&w=800",
+      "specs": {
+        "months": "48 Mo",
+        "mileage": "10K Mi",
+        "down": "$0 Down",
+        "msrp": "$47,990"
+      }
+    },
+    {
+      "id": 5,
+      "name": "2024 Toyota RAV4 Hybrid",
+      "trim": "XSE Hybrid",
+      "price": 445,
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&q=80&w=800",
+      "specs": {
+        "months": "39 Mo",
+        "mileage": "10K Mi",
+        "down": "$1,500 Down",
+        "msrp": "$38,200"
+      }
+    },
+    {
+      "id": 6,
+      "name": "2024 Audi Q5 45 TFSI",
+      "trim": "Premium Plus",
+      "price": 585,
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1541348263662-e0c8de4259ba?auto=format&fit=crop&q=80&w=800",
+      "specs": {
+        "months": "36 Mo",
+        "mileage": "10K Mi",
+        "down": "$1,999 Down",
+        "msrp": "$52,400"
+      }
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "title": "BMW M4 Competition",
+      "category": "Luxury",
+      "image": "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      "id": 2,
+      "title": "Mercedes-Benz G63 AMG",
+      "category": "SUVs",
+      "image": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      "id": 3,
+      "title": "Porsche 911 GT3",
+      "category": "Sports",
+      "image": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      "id": 4,
+      "title": "Audi R8 Performance",
+      "category": "Sports",
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      "id": 5,
+      "title": "Lamborghini Huracán STO",
+      "category": "Sports",
+      "image": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      "id": 6,
+      "title": "Tesla Model S Plaid",
+      "category": "Luxury",
+      "image": "https://images.unsplash.com/photo-1555353540-64fd1b623d38?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      "id": 7,
+      "title": "Range Rover Autobiography",
+      "category": "SUVs",
+      "image": "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      "id": 8,
+      "title": "Lexus LC 500",
+      "category": "Luxury",
+      "image": "https://images.unsplash.com/photo-1544636331-e268592033c2?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      "id": 9,
+      "title": "Ford F-150 Raptor",
+      "category": "SUVs",
+      "image": "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&q=80&w=1200"
+    }
+  ]
+}

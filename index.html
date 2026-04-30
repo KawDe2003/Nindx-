@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nine Star Auto | Premium Vehicle Brokerage</title>
+    <meta name="description" content="Get into your vehicle today. Any make or model with professional auto brokerage services." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <i class="fas fa-star"></i> NINE STAR <span>AUTO</span>
+          </div>
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/#deals">Hot Deals</a></li>
+            <li><a href="/#services">Our Services</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/gallery.html">Gallery</a></li>
+            <li><a href="/#contact">Contact Us</a></li>
+          </ul>
+          <button class="btn btn-primary open-quote">Request Quote</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1>GET INTO YOUR VEHICLE <span>TODAY</span><br>ANY MAKE OR MODEL</h1>
+            
+            <div class="hero-stats">
+              <div class="stat-card">
+                <i class="fas fa-hand-holding-dollar"></i>
+                <h3>$0 Down</h3>
+                <p>Down Payment options available</p>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-car-side"></i>
+                <h3>Any Make</h3>
+                <p>All Brands Available</p>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast Approval</h3>
+                <p>Quick & easy process</p>
+              </div>
+              <div class="stat-card">
+                <i class="fas fa-tags"></i>
+                <h3>Best Deals</h3>
+                <p>Competitive pricing</p>
+              </div>
+            </div>
+            
+            <button class="btn btn-primary open-quote" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Request Quote</button>
+          </div>
+          <div class="hero-image">
+            <img src="/assets/hero.png" alt="Luxury Car">
+          </div>
+        </div>
+      </section>
+
+      <section class="brands-section">
+        <div class="container">
+          <div class="brands-track">
+            <span>BMW</span>
+            <span>MERCEDES-BENZ</span>
+            <span>AUDI</span>
+            <span>LEXUS</span>
+            <span>TESLA</span>
+            <span>PORSCHE</span>
+            <span>HONDA</span>
+            <span>TOYOTA</span>
+            <span>NISSAN</span>
+            <!-- Duplicate for loop -->
+            <span>BMW</span>
+            <span>MERCEDES-BENZ</span>
+            <span>AUDI</span>
+            <span>LEXUS</span>
+            <span>TESLA</span>
+            <span>PORSCHE</span>
+            <span>HONDA</span>
+            <span>TOYOTA</span>
+            <span>NISSAN</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="deals" class="section container">
+        <div class="section-header">
+          <h2>HOT DEALS</h2>
+          <div class="filters">
+            <div class="filter-group">
+              <i class="fas fa-location-dot"></i>
+              <select><option>Select City/Location</option></select>
+            </div>
+            <div class="filter-group">
+              <i class="fas fa-car"></i>
+              <select><option>Select Car Make</option></select>
+            </div>
+            <div class="filter-group">
+              <i class="fas fa-sliders"></i>
+              <select><option>Select Car Body</option></select>
+            </div>
+            <a href="gallery.html" class="btn btn-primary" style="display: inline-block; padding: 1rem 2rem;">Search Your Car</a>
+          </div>
+          <p>556 RESULTS</p>
+        </div>
+
+        <div class="deals-grid" id="car-listings">
+          <!-- Car cards will be injected by JS -->
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="gallery.html" class="btn btn-outline" style="padding: 1rem 3rem; display: inline-block;">View All Inventory</a>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <div class="section-header" style="text-align: center;">
+            <h2>OUR SERVICES</h2>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">We provide a comprehensive vehicle brokerage experience, taking the stress out of car buying.</p>
+          </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-tags"></i></div>
+              <h3>Price Negotiation</h3>
+              <p>We use our industry connections and volume to secure prices you can't get on your own.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-file-contract"></i></div>
+              <h3>Lease & Finance</h3>
+              <p>Expert guidance on financing options to ensure you get the best rates and terms.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-truck-ramp-box"></i></div>
+              <h3>Doorstep Delivery</h3>
+              <p>Your new vehicle delivered straight to your home or office, ready to drive.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-arrows-rotate"></i></div>
+              <h3>Trade-In Handling</h3>
+              <p>Get the maximum value for your current vehicle with our professional appraisal network.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section bg-alt">
+        <div class="container">
+          <div class="about-flex">
+            <div class="about-content">
+              <span class="subtitle">Since 2018</span>
+              <h2>THE NINE STAR <span>ADVANTAGE</span></h2>
+              <p>Nine Star Auto was founded on the principle that buying a car should be as premium as the vehicle itself. We act as your personal advocate, navigating the complex world of dealerships to find you the exact make and model you desire.</p>
+              <p>Our relationships with major manufacturers and dealer networks across the country allow us to source inventory that others can't, all while maintaining a transparent and honest process.</p>
+              <div class="about-features">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Transparent Pricing</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span>National Inventory</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Zero Dealer Hassle</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-image">
+              <div class="image-stack">
+                <div class="stack-item item-1"></div>
+                <div class="stack-item item-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials section bg-alt">
+        <div class="container">
+          <div class="section-header" style="text-align: center;">
+            <span class="subtitle">Reviews</span>
+            <h2>WHAT OUR CLIENTS <span>SAY</span></h2>
+          </div>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <p>"The team at Nine Star Auto made my BMW lease absolutely effortless. I got a better price than any dealer in NY could offer."</p>
+              <div class="client">
+                <strong>Michael R.</strong>
+                <span>Scarsdale, NY</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <p>"Zero down, zero hassle. They delivered my new Tesla Model Y right to my driveway. Highly recommended brokerage!"</p>
+              <div class="client">
+                <strong>Sarah J.</strong>
+                <span>New York City</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <p>"I was skeptical about using a broker, but Nine Star saved me over $3,000 on my new Honda. Professional from start to finish."</p>
+              <div class="client">
+                <strong>David K.</strong>
+                <span>Astoria, NY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-box">
+            <h2>READY TO DRIVE YOUR DREAM CAR?</h2>
+            <p>Don't spend hours at a dealership. Let us do the work for you.</p>
+            <button class="btn btn-primary open-quote">Get Your Free Quote</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo">
+              <i class="fas fa-star"></i> NINE STAR <span>AUTO</span>
+            </div>
+            <p>Professional auto brokerage services. We help you find the perfect vehicle at the best price with zero hassle.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/#deals">Hot Deals</a></li>
+              <li><a href="/#services">Our Services</a></li>
+              <li><a href="/#about">About</a></li>
+              <li><a href="/gallery.html">Gallery</a></li>
+              <li><a href="/#contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Inventory</h4>
+            <ul class="footer-links">
+            <li><a href="gallery.html">SUVs</a></li>
+            <li><a href="gallery.html">Sedans</a></li>
+            <li><a href="gallery.html">Luxury</a></li>
+            <li><a href="gallery.html">Electric</a></li>
+            <li><a href="gallery.html">Sports Cars</a></li>
+          </ul>
+          </div>
+          <div class="footer-contact" id="contact">
+            <h4>Contact Info</h4>
+            <p><i class="fas fa-phone"></i> +1 123 123 1234</p>
+            <p><i class="fas fa-envelope"></i> contact@ninestarauto.com</p>
+            <p><i class="fas fa-location-dot"></i> 123 Star Way, City Name, New York</p>
+          </div>
+        </div>
+        <div class="copyright">
+          &copy; 2024 Nine Star Auto. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="quote-modal">
+      <div class="modal">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <h2>INSTANT QUOTE</h2>
+          <p>Fill in the details below to get a professional brokerage quote for your dream vehicle.</p>
+          
+          <form class="quote-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Enter first name">
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Enter last name">
+              </div>
+              <div class="form-group">
+                <label>Contact Number</label>
+                <input type="tel" placeholder="Enter contact number">
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter email address">
+              </div>
+              <div class="form-group">
+                <label>Make</label>
+                <input type="text" placeholder="e.g. Nissan">
+              </div>
+              <div class="form-group">
+                <label>Model</label>
+                <input type="text" placeholder="e.g. Rogue">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Submit Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Broker Disclaimer Modal (Auto Pop-up) -->
+    <div class="modal-overlay active" id="broker-modal">
+      <div class="modal">
+        <button class="modal-close" style="display: none;">&times;</button>
+        <div class="modal-body">
+          <h2>REGISTERED AUTO MOBILE BROKER</h2>
+          <p>NineStarAuto is not a registered new motor vehicle dealer but is a registered automobile broker business as defined in Section 415 of the Vehicle and Traffic Law.</p>
+          <p>A broker fee may be charged. Details shall be provided upon request by the consumer.</p>
+          <p>All new vehicles are equipped with bumper to bumper warranty. No warranty repair services will be provided by NineStarAuto.</p>
+          
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button class="btn btn-primary" id="btn-agree">I Understand</button>
+            <button class="btn btn-outline" id="btn-discard">Discard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
