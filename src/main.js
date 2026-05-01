@@ -303,6 +303,37 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
   });
 });
 
+// Scroll Reveal Car Effect
+const revealSection = document.querySelector('.scroll-reveal-section');
+const revealCarBg = document.querySelector('.reveal-car-bg');
+const revealContent = document.querySelector('.reveal-content');
+
+window.addEventListener('scroll', () => {
+  if (!revealSection) return;
+  
+  const rect = revealSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  
+  // Calculate how much of the section is visible
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    // 0 to 1 based on position in viewport
+    const progress = 1 - (rect.top / windowHeight);
+    const clampedProgress = Math.min(Math.max(progress, 0), 1);
+    
+    // Update brightness (from 0.1 to 1)
+    if (revealCarBg) {
+      revealCarBg.style.filter = `brightness(${0.1 + clampedProgress * 0.9}) contrast(1.2)`;
+      revealCarBg.style.transform = `translateY(${clampedProgress * -50}px)`;
+    }
+    
+    // Reveal content when halfway
+    if (clampedProgress > 0.5 && revealContent) {
+      revealContent.classList.add('active');
+    }
+  }
+});
+
+
 
 
 // Mobile Menu Toggle
