@@ -1063,16 +1063,30 @@ footer {
 .brands-track {
   display: flex;
   align-items: center;
-  gap: 6rem;
-  opacity: 0.5;
-  font-weight: 800;
-  font-size: 1.2rem;
-  font-family: 'Outfit', sans-serif;
-  color: var(--text-primary);
+  gap: 8rem;
   white-space: nowrap;
   animation: scroll 40s linear infinite;
   width: max-content;
 }
+
+.brands-track img {
+  height: 40px;
+  width: auto;
+  opacity: 0.4;
+  transition: var(--transition);
+  filter: grayscale(1);
+}
+
+.brands-track:hover img {
+  opacity: 0.2;
+}
+
+.brands-track img:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
 
 @keyframes scroll {
   0% { transform: translateX(0); }
