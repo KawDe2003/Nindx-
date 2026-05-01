@@ -18,35 +18,61 @@ async function initApp() {
       client.fetch(galleryQuery)
     ]);
 
-    // Format data for the existing templates
-    appData.hotDeals = hotDeals.map(car => ({
-      name: car.make,
-      trim: car.model,
-      specs: {
-        months: '36 Mos',
-        mileage: '10k Mi/Yr',
-        down: '$0 Down',
-        msrp: 'MSRP'
-      },
-      price: car.price,
-      image: car.image ? urlFor(car.image).url() : 'https://placehold.co/600x400/111/333?text=No+Image',
-      featured: car.featured
-    }));
+    if (hotDeals.length > 0) {
+      appData.hotDeals = hotDeals.map(car => ({
+        name: car.make,
+        trim: car.model,
+        specs: {
+          months: '36 Mos',
+          mileage: '10k Mi/Yr',
+          down: '$0 Down',
+          msrp: 'MSRP'
+        },
+        price: car.price,
+        image: car.image ? urlFor(car.image).url() : 'https://placehold.co/600x400/111/333?text=No+Image',
+        featured: car.featured
+      }));
+    }
 
-    appData.gallery = gallery.map(item => ({
-      title: item.title,
-      category: 'Recent Delivery',
-      image: item.image ? urlFor(item.image).url() : 'https://placehold.co/600x400/111/333?text=No+Image'
-    }));
+    if (gallery.length > 0) {
+      appData.gallery = gallery.map(item => ({
+        title: item.title,
+        category: 'Recent Delivery',
+        image: item.image ? urlFor(item.image).url() : 'https://placehold.co/600x400/111/333?text=No+Image'
+      }));
+    }
+
+    // If Sanity is empty, fallback to local data.json
+    if (appData.hotDeals.length === 0) {
+      console.log('Sanity empty or disconnected, falling back to local data...');
+      const localResponse = await fetch('/data.json');
+      const localData = await localResponse.json();
+      appData.hotDeals = localData.hotDeals;
+      appData.gallery = localData.gallery;
+    }
     
     renderHotDeals();
     renderGallery();
     setupGalleryFilters();
     initCustomSelects();
   } catch (error) {
-    console.error('Error loading data from Sanity:', error);
+    console.warn('Sanity error, falling back to local data:', error);
+    try {
+      const localResponse = await fetch('/data.json');
+      const localData = await localResponse.json();
+      appData.hotDeals = localData.hotDeals;
+      appData.gallery = localData.gallery;
+      
+      renderHotDeals();
+      renderGallery();
+      setupGalleryFilters();
+      initCustomSelects();
+    } catch (localError) {
+      console.error('Total data failure:', localError);
+    }
   }
 }
+
 
 // Render Hot Deals to the grid
 function renderHotDeals() {

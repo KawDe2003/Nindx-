@@ -723,24 +723,7 @@ select.hidden-select {
   margin-top: 4rem;
 }
 
-.service-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-color);
-  padding: 3rem 2.5rem;
-  border-radius: 20px;
-  transition: var(--transition);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card:hover {
-  border-color: rgba(250, 204, 21, 0.3);
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.04);
-}
-
+/* Enhanced .service-card styles moved to line 1942 */
 .service-icon {
   width: 60px;
   height: 60px;
@@ -1381,7 +1364,9 @@ footer {
   .modal { border-radius: 16px; }
   .modal-body { padding: 2rem; }
 
-  .brands-track { gap: 3rem; font-size: 1rem; }
+  .brands-track { gap: 4rem; }
+  .brands-track img { height: 35px; }
+
 }
 
 /* --- Mobile Portrait (≤480px) --- */
