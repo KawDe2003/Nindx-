@@ -294,25 +294,15 @@ quoteForms.forEach(form => {
     
     setTimeout(() => {
       btn.innerHTML = '<i class="fas fa-check"></i> Request Sent!';
-      btn.style.background = '#10b981';
       
       setTimeout(() => {
         quoteModal.classList.remove('active');
         btn.innerHTML = originalText;
-        btn.style.background = '';
         btn.disabled = false;
         form.reset();
       }, 2000);
     }, 1500);
   });
-});
-
-agreeBtn?.addEventListener('click', () => {
-  brokerModal.classList.remove('active');
-});
-
-discardBtn?.addEventListener('click', () => {
-  brokerModal.classList.remove('active');
 });
 
 // Scroll Reveal Animation
@@ -339,4 +329,24 @@ function observeElements() {
 
 // Initial Call
 initApp();
+
+// Handle Broker Modal (Show only once per device)
+window.addEventListener('load', () => {
+  const hasSeenPrompt = localStorage.getItem('nineStarPromptSeen');
+  if (!hasSeenPrompt && brokerModal) {
+    setTimeout(() => {
+      brokerModal.classList.add('active');
+    }, 1000);
+  }
+});
+
+agreeBtn?.addEventListener('click', () => {
+  localStorage.setItem('nineStarPromptSeen', 'true');
+  brokerModal.classList.remove('active');
+});
+
+discardBtn?.addEventListener('click', () => {
+  localStorage.setItem('nineStarPromptSeen', 'true');
+  brokerModal.classList.remove('active');
+});
 
