@@ -1204,7 +1204,7 @@ footer {
   .custom-select.filter-select { width: 100%; }
   .custom-select.filter-select .select-trigger { min-width: unset; }
 
-  .deals-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .deals-grid { grid-template-columns: 1fr; gap: 1.5rem; max-width: 480px; margin: 0 auto; }
   .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .about-content h2 { font-size: 2rem; }
   .about-features { grid-template-columns: 1fr; }
@@ -1247,7 +1247,7 @@ footer {
     letter-spacing: 0.1em;
   }
 
-  .deals-grid { grid-template-columns: 1fr; }
+  .deals-grid { grid-template-columns: 1fr; max-width: 100%; }
   .car-card { border-radius: 16px; }
   .car-image { height: 180px; }
   .car-info h3 { font-size: 1rem; }
