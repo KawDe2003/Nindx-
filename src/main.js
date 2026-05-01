@@ -244,15 +244,25 @@ function setupLightbox() {
   }
 }
 
-// Header Scroll Effect
+// Scroll Effects (Header & Progress Bar)
 const header = document.getElementById('header');
+const progressBar = document.getElementById('progress-bar');
+
 window.addEventListener('scroll', () => {
+  // Header scroll class
   if (window.scrollY > 50) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
+
+  // Progress bar logic
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  if (progressBar) progressBar.style.width = scrolled + '%';
 });
+
 
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menu-toggle');
@@ -337,13 +347,17 @@ const observerOptions = {
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('reveal-active');
+      // Add a slight delay based on the index if multiple items reveal at once
+      setTimeout(() => {
+        entry.target.classList.add('reveal-active');
+      }, index * 100);
       observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
+
 
 function observeElements() {
   document.querySelectorAll('.section, .stat-card, .service-card, .car-card, .testimonial-card, .about-content, .about-image, .gallery-item').forEach(el => {
