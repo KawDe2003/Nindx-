@@ -76,7 +76,7 @@ function renderHotDeals() {
       </div>
       <div class="car-info">
         <h3>${car.name}</h3>
-        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 1rem;">${car.trim}</p>
+        <p class="car-trim">${car.trim}</p>
         <div class="car-meta">
           <span><i class="far fa-calendar"></i> ${car.specs.months}</span>
           <span><i class="fas fa-road"></i> ${car.specs.mileage}</span>
@@ -88,7 +88,7 @@ function renderHotDeals() {
         <div class="car-price">
           $${car.price} <span>/ month</span>
         </div>
-        <button class="btn btn-outline open-quote" style="width: 100%; margin-top: 1.5rem;">Check Availability</button>
+        <button class="btn btn-outline open-quote" style="width: 100%; margin-top: 1.25rem;">Check Availability</button>
       </div>
     </div>
   `).join('');
