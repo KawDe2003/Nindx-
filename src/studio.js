@@ -1,5 +1,5 @@
 import { renderStudio } from 'sanity';
-import config from '../studio/sanity.config.js';
+import config from '../sanity.config.js';
 
 // Add the basePath for embedded studio
 const embeddedConfig = {
