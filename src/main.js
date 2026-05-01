@@ -378,8 +378,18 @@ discardBtn?.addEventListener('click', () => {
 
 // Hero Slider logic
 function initHeroSlider() {
+  const container = document.getElementById('hero-slides-container');
+  if (!container || !appData.heroSlides) return;
+
+  // Render slides from data
+  container.innerHTML = appData.heroSlides.map((slide, index) => `
+    <div class="hero-slide ${index === 0 ? 'active' : ''}">
+      <img src="${slide.image}" alt="${slide.alt}">
+    </div>
+  `).join('');
+
   const slides = document.querySelectorAll('.hero-slide');
-  if (slides.length === 0) return;
+  if (slides.length <= 1) return;
   
   let currentSlide = 0;
   

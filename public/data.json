@@ -140,5 +140,27 @@
       "category": "SUVs",
       "image": "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&q=80&w=1200"
     }
+  ],
+  "heroSlides": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=1200",
+      "alt": "Luxury BMW X5"
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200",
+      "alt": "Porsche 911 GT3"
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&q=80&w=1200",
+      "alt": "Tesla Model Y"
+    },
+    {
+      "id": 4,
+      "image": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&q=80&w=1200",
+      "alt": "Mercedes-Benz G-Wagon"
+    }
   ]
 }
