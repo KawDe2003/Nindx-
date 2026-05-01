@@ -60,7 +60,20 @@
               </div>
             </div>
             
-            <button class="btn btn-primary open-quote" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Request Quote</button>
+            <div class="hero-form-container reveal" style="margin-top: 2rem;">
+              <form class="hero-quick-quote quote-form">
+                <div class="hero-form-grid">
+                  <input type="text" placeholder="Your Name" required>
+                  <input type="tel" placeholder="Phone Number" required>
+                  <input type="text" placeholder="Car of Interest" required id="hero-car-interest">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1.2rem;">GET YOUR QUOTE NOW</button>
+              </form>
+              <div class="hero-form-footer">
+                <span><i class="fas fa-shield-halved"></i> 100% Secure & Confidential</span>
+                <span><i class="fas fa-clock"></i> Response in < 15 mins</span>
+              </div>
+            </div>
           </div>
           <div class="hero-image">
             <div class="hero-slides" id="hero-slides-container">
@@ -99,22 +112,43 @@
       <section id="deals" class="section container">
         <div class="section-header">
           <h2>HOT DEALS</h2>
-          <div class="filters">
-            <div class="filter-group">
-              <i class="fas fa-location-dot"></i>
-              <select><option>Select City/Location</option></select>
+          <div class="filters-container reveal">
+            <div class="advanced-filters">
+              <div class="filter-main">
+                <div class="filter-field">
+                  <label>BRAND</label>
+                  <select id="filter-make">
+                    <option value="">All Brands</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Mercedes">Mercedes-Benz</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Porsche">Porsche</option>
+                    <option value="Tesla">Tesla</option>
+                  </select>
+                </div>
+                <div class="filter-field">
+                  <label>BODY STYLE</label>
+                  <select id="filter-body">
+                    <option value="">All Styles</option>
+                    <option value="SUV">SUVs</option>
+                    <option value="Sedan">Sedans</option>
+                    <option value="Coupe">Coupes</option>
+                    <option value="Convertible">Convertibles</option>
+                  </select>
+                </div>
+                <div class="filter-field price-range">
+                  <label>MONTHLY BUDGET: <span id="price-val">$2,000</span></label>
+                  <input type="range" min="300" max="5000" step="50" value="2000" id="price-slider">
+                </div>
+                <button class="btn btn-primary" id="search-btn">
+                  <i class="fas fa-magnifying-glass"></i> SEARCH
+                </button>
+              </div>
             </div>
-            <div class="filter-group">
-              <i class="fas fa-car"></i>
-              <select><option>Select Car Make</option></select>
+            <div class="filter-stats">
+              <span id="results-count">556</span> Vehicles Available Today
             </div>
-            <div class="filter-group">
-              <i class="fas fa-sliders"></i>
-              <select><option>Select Car Body</option></select>
-            </div>
-            <a href="gallery.html" class="btn btn-primary" style="display: inline-block; padding: 1rem 2rem;">Search Your Car</a>
           </div>
-          <p>556 RESULTS</p>
         </div>
 
         <div class="deals-grid" id="car-listings">
@@ -334,6 +368,23 @@
             <button class="btn btn-outline" id="btn-discard">Discard</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Trust Badge (Floating) -->
+    <div class="trust-badge">
+      <div class="trust-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+      </div>
+      <div class="trust-info">
+        <div class="trust-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="trust-text">5.0 Star Rating</div>
       </div>
     </div>
 

@@ -402,5 +402,38 @@ function initHeroSlider() {
   setInterval(nextSlide, 5000);
 }
 
-// Call slider init
+
+// Advanced Filter Logic
+function initAdvancedFilters() {
+  const priceSlider = document.getElementById('price-slider');
+  const priceVal = document.getElementById('price-val');
+  const searchBtn = document.getElementById('search-btn');
+
+  if (!priceSlider) return;
+
+  priceSlider.addEventListener('input', (e) => {
+    const val = parseInt(e.target.value).toLocaleString();
+    priceVal.textContent = `$${val}`;
+  });
+
+  searchBtn?.addEventListener('click', () => {
+    const make = document.getElementById('filter-make').value;
+    const body = document.getElementById('filter-body').value;
+    const price = parseInt(priceSlider.value);
+    
+    console.log('Filtering for:', { make, body, price });
+    
+    // Smooth scroll to results
+    document.getElementById('car-listings').scrollIntoView({ behavior: 'smooth' });
+    
+    // Update count (simulated)
+    const count = document.getElementById('results-count');
+    if (count) {
+      count.textContent = Math.floor(Math.random() * 50) + 10;
+    }
+  });
+}
+
+// Call inits
 initHeroSlider();
+initAdvancedFilters();

@@ -1610,6 +1610,200 @@ footer {
   margin-bottom: 0.5rem;
   font-weight: 800;
 }
+/* --- Hero Quick Quote Form --- */
+.hero-form-container {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+  max-width: 550px;
+}
 
+.hero-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
 
+.hero-form-grid input {
+  grid-column: span 1;
+}
 
+#hero-car-interest {
+  grid-column: span 2;
+}
+
+.hero-quick-quote input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.hero-quick-quote input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-form-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.hero-form-footer span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- Advanced Filters Upgrade --- */
+.filters-container {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.advanced-filters {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.filter-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr auto;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.filter-field label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.filter-field select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.price-range input[type="range"] {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  appearance: none;
+  outline: none;
+}
+
+.price-range input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
+}
+
+.filter-stats {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+#results-count {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* --- Trust Badge (Floating) --- */
+.trust-badge {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 999;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.trust-badge:hover {
+  transform: translateY(-5px);
+}
+
+.trust-logo img {
+  height: 24px;
+}
+
+.trust-info {
+  line-height: 1.2;
+}
+
+.trust-rating {
+  color: #fbbc05;
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+}
+
+.trust-text {
+  color: #333;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .filter-main {
+    grid-template-columns: 1fr 1fr;
+  }
+  .price-range, #search-btn {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-form-grid input, #hero-car-interest {
+    grid-column: span 1;
+  }
+  .filter-main {
+    grid-template-columns: 1fr;
+  }
+  .filter-field, #search-btn {
+    grid-column: span 1;
+  }
+}
