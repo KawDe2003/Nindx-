@@ -42,6 +42,7 @@ async function initApp() {
     renderHotDeals();
     renderGallery();
     setupGalleryFilters();
+    initCustomSelects();
   } catch (error) {
     console.error('Error loading data from Sanity:', error);
   }
@@ -150,6 +151,12 @@ function initCustomSelects() {
     // Wrap select
     const wrapper = document.createElement('div');
     wrapper.className = 'custom-select';
+    
+    // Copy some classes if needed
+    if (select.closest('.filter-group')) {
+      wrapper.classList.add('filter-select');
+    }
+    
     select.parentNode.insertBefore(wrapper, select);
     wrapper.appendChild(select);
     select.classList.add('hidden-select');
