@@ -466,6 +466,63 @@ discardBtn?.addEventListener('click', () => {
 function initHeroSlider() {
   const container = document.getElementById('hero-slides-container');
   if (!container || !appData.heroSlides) return;
+// --- Final Polish Interactions ---
+
+// Custom Cursor Logic
+const cursor = document.getElementById('custom-cursor');
+const dot = document.getElementById('cursor-dot');
+
+if (cursor && dot) {
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+  });
+
+  const interactiveElements = document.querySelectorAll('a, button, .car-card, .service-card, .style-card');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+}
+
+// 3D Card Tilt Effect
+function applyCardTilt() {
+  document.querySelectorAll('.car-card, .service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 20;
+      const rotateY = (centerX - x) / 20;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+// Re-apply tilt after data renders
+const originalRenderHotDeals = renderHotDeals;
+renderHotDeals = function() {
+  originalRenderHotDeals();
+  applyCardTilt();
+};
+
+const originalRenderGallery = renderGallery;
+renderGallery = function() {
+  originalRenderGallery();
+  applyCardTilt();
+};
+
+// Initial call for static cards
+applyCardTilt();
 
   // Render slides from data
   container.innerHTML = appData.heroSlides.map((slide, index) => `
