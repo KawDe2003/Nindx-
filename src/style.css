@@ -324,30 +324,89 @@ nav {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.filter-group select {
-  background: transparent;
-  border: none;
-  color: var(--text-primary);
-  outline: none;
-  font-size: 0.85rem;
-  font-weight: 600;
+/* --- Custom Dropdown Styles --- */
+.custom-select {
+  position: relative;
+  width: 100%;
   cursor: pointer;
-  appearance: none;
-  padding-right: 1.5rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23facc15'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 1rem;
 }
 
-.filter-group select option {
-  background: #0a0a0a;
-  color: #fff;
+.select-trigger {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  padding: 0.85rem 1.5rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: var(--transition);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 
-.filter-group select:focus option:checked {
-  background: var(--accent-color) !important;
-  color: #000 !important;
+.custom-select:hover .select-trigger {
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.select-trigger i {
+  color: var(--accent-color);
+  transition: var(--transition);
+}
+
+.custom-select.active .select-trigger i {
+  transform: rotate(180deg);
+}
+
+.select-options {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  background: #121212;
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  overflow: hidden;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+  animation: dropdownIn 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.custom-select.active .select-options {
+  display: block;
+}
+
+.select-option {
+  padding: 1rem 1.5rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.select-option:last-child {
+  border-bottom: none;
+}
+
+.select-option:hover, .select-option.selected {
+  background: rgba(250, 204, 21, 0.1);
+  color: var(--accent-color);
+}
+
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hide original selects but keep them for form submission */
+select.hidden-select {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .deals-grid {

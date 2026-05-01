@@ -142,6 +142,65 @@ function setupGalleryFilters() {
   });
 }
 
+// Custom Select Dropdown logic
+function initCustomSelects() {
+  const selects = document.querySelectorAll('select:not(.hidden-select)');
+  
+  selects.forEach(select => {
+    // Wrap select
+    const wrapper = document.createElement('div');
+    wrapper.className = 'custom-select';
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(select);
+    select.classList.add('hidden-select');
+    
+    // Create custom UI
+    const trigger = document.createElement('div');
+    trigger.className = 'select-trigger';
+    trigger.innerHTML = `<span>${select.options[select.selectedIndex].text}</span><i class="fas fa-chevron-down"></i>`;
+    wrapper.appendChild(trigger);
+    
+    const optionsList = document.createElement('div');
+    optionsList.className = 'select-options';
+    
+    Array.from(select.options).forEach((option, index) => {
+      const opt = document.createElement('div');
+      opt.className = 'select-option' + (index === select.selectedIndex ? ' selected' : '');
+      opt.textContent = option.text;
+      opt.dataset.value = option.value;
+      
+      opt.addEventListener('click', () => {
+        select.value = option.value;
+        trigger.querySelector('span').textContent = option.text;
+        wrapper.querySelectorAll('.select-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        wrapper.classList.remove('active');
+        
+        // Trigger change event for filtering
+        select.dispatchEvent(new Event('change'));
+      });
+      
+      optionsList.appendChild(opt);
+    });
+    
+    wrapper.appendChild(optionsList);
+    
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Close other dropdowns
+      document.querySelectorAll('.custom-select').forEach(s => {
+        if (s !== wrapper) s.classList.remove('active');
+      });
+      wrapper.classList.toggle('active');
+    });
+  });
+  
+  // Close on outside click
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.custom-select').forEach(s => s.classList.remove('active'));
+  });
+}
+
 // Lightbox Logic
 function setupLightbox() {
   const lightboxModal = document.getElementById('lightbox-modal');
@@ -203,6 +262,7 @@ const brokerModal = document.getElementById('broker-modal');
 const agreeBtn = document.getElementById('btn-agree');
 const discardBtn = document.getElementById('btn-discard');
 
+// Global click listener for modals and close events
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('open-quote')) {
     e.preventDefault();
