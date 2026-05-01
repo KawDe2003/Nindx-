@@ -995,6 +995,41 @@ select.hidden-select {
   flex: 1;
 }
 
+/* --- Broker Modal Refinements --- */
+#broker-modal .modal {
+  max-width: 500px;
+}
+
+#broker-modal .modal-body {
+  padding: 2.5rem;
+}
+
+#broker-modal h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0;
+  line-height: 1.3;
+  background: none;
+  -webkit-text-fill-color: var(--text-primary);
+  text-fill-color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+#broker-modal p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  text-transform: none;
+  font-style: normal;
+}
+
+#broker-modal .btn {
+  padding: 0.85rem 1.5rem;
+  font-size: 0.75rem;
+}
+
+
 .modal-close {
   position: absolute;
   top: 1rem;
