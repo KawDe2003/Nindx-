@@ -55,7 +55,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   background: transparent;
   transition: var(--transition);
 }
@@ -63,7 +63,7 @@ header {
 header.scrolled {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
-  padding: 1rem 0;
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--border-color);
 }
 
