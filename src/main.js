@@ -68,7 +68,14 @@ function renderHotDeals() {
     return;
   }
 
-  listingsContainer.innerHTML = sortedDeals.map(car => `
+  listingsContainer.innerHTML = sortedDeals.map(car => {
+    const parts = car.name.split(' ');
+    // Robust parsing: If 1st word is a year, 2nd is make. Otherwise 1st is make.
+    const isYear = !isNaN(parseInt(parts[0]));
+    const make = isYear ? (parts[1] || parts[0]) : parts[0];
+    const model = isYear ? `${parts[0]} ${parts.slice(2).join(' ')}`.trim() : parts.slice(1).join(' ').trim() || parts[0];
+
+    return `
     <div class="car-card reveal ${car.featured ? 'featured' : ''}">
       ${car.featured ? '<div class="featured-badge"><i class="fas fa-crown"></i> Featured</div>' : ''}
       <div class="car-image">
@@ -89,12 +96,12 @@ function renderHotDeals() {
           $${car.price} <span>/ month</span>
         </div>
         <button class="btn btn-outline open-quote" 
-          data-make="${car.name.split(' ')[1] || ''}" 
-          data-model="${car.name.split(' ')[0]} ${car.name.split(' ').slice(2).join(' ')}"
+          data-make="${make}" 
+          data-model="${model}"
           style="width: 100%; margin-top: 1.25rem;">Check Availability</button>
       </div>
     </div>
-  `).join('');
+  `}).join('');
   
   observeElements();
 }
