@@ -88,7 +88,10 @@ function renderHotDeals() {
         <div class="car-price">
           $${car.price} <span>/ month</span>
         </div>
-        <button class="btn btn-outline open-quote" style="width: 100%; margin-top: 1.25rem;">Check Availability</button>
+        <button class="btn btn-outline open-quote" 
+          data-make="${car.name.split(' ')[1] || ''}" 
+          data-model="${car.name.split(' ')[0]} ${car.name.split(' ').slice(2).join(' ')}"
+          style="width: 100%; margin-top: 1.25rem;">Check Availability</button>
       </div>
     </div>
   `).join('');
@@ -271,8 +274,23 @@ const discardBtn = document.getElementById('btn-discard');
 
 // Global click listener for modals and close events
 document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('open-quote')) {
+  const openQuoteBtn = e.target.closest('.open-quote');
+  if (openQuoteBtn) {
     e.preventDefault();
+    
+    // Reset fields first
+    const makeInput = document.getElementById('quote-make');
+    const modelInput = document.getElementById('quote-model');
+    if (makeInput) makeInput.value = '';
+    if (modelInput) modelInput.value = '';
+    
+    // Auto-fill Make and Model if data exists
+    const make = openQuoteBtn.getAttribute('data-make');
+    const model = openQuoteBtn.getAttribute('data-model');
+    
+    if (make && makeInput) makeInput.value = make;
+    if (model && modelInput) modelInput.value = model;
+    
     quoteModal.classList.add('active');
   }
   if (e.target.classList.contains('modal-close') || e.target.classList.contains('modal-overlay')) {
