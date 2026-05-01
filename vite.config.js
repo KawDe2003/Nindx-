@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         gallery: resolve(__dirname, 'gallery.html'),
         hotdeals: resolve(__dirname, 'hotdeals.html'),
+        studio: resolve(__dirname, 'studio.html'),
       },
     },
   },
