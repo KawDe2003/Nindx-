@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap');
+
 
 :root {
   --bg-color: #020202;
@@ -50,21 +51,33 @@ body {
 h1, h2, h3, .brand {
   font-family: 'Outfit', sans-serif;
   text-transform: uppercase;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+  font-weight: 900;
 }
 
-h1 { font-size: clamp(2.5rem, 8vw, 5.5rem); }
-h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
-h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+h1 { font-size: clamp(3rem, 10vw, 6.5rem); line-height: 0.9; }
+h2 { font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; }
+h3 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+
+.luxury-serif {
+  font-family: 'Cormorant Garamond', serif;
+  text-transform: none;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--accent-color);
+}
 
 h1 span, h2 span {
-  background: linear-gradient(135deg, var(--accent-color) 0%, #fff 50%, var(--accent-secondary) 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, #fff 40%, var(--accent-secondary) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 5s linear infinite;
+  text-shadow: 0 10px 20px rgba(250, 204, 21, 0.1);
 }
+
 
 @keyframes shine {
   to { background-position: 200% center; }
@@ -377,11 +390,27 @@ nav {
   color: var(--accent-color);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  margin-bottom: 1.5rem;
   display: block;
+  opacity: 0.8;
 }
+
+.luxury-tag {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(250, 204, 21, 0.05);
+  border: 1px solid rgba(250, 204, 21, 0.1);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
 
 .bg-alt {
   background: #0a0a0a;
