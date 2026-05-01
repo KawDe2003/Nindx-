@@ -7,10 +7,18 @@
     <title>Nine Star Auto | Premium Vehicle Brokerage [v2]</title>
     <meta name="description" content="Get into your vehicle today. Any make or model with professional auto brokerage services." />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/src/preloader.css" />
   </head>
   <body>
     <div id="custom-cursor"></div>
     <div id="cursor-dot"></div>
+    
+    <!-- Luxury Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="preloader-logo">NINE STAR <span>AUTO</span></div>
+      <div class="preloader-line"></div>
+      <div class="preloader-text">Loading Experience</div>
+    </div>
     
     <header id="header">
 
@@ -43,8 +51,8 @@
         <div class="container">
           <div class="hero-content">
             <div class="luxury-tag">Establishment 2024</div>
-            <h1>THE ART OF <br><span>ACQUISITION</span></h1>
-            <p class="luxury-serif" style="font-size: 1.5rem; margin-top: 1rem; opacity: 0.9;">Bespoke automotive brokerage for the discerning driver.</p>
+            <h1 class="hero-title"><span>THE ART OF</span> <br><span>ACQUISITION</span></h1>
+            <p class="luxury-serif hero-subtitle">Bespoke automotive brokerage for the discerning driver.</p>
             
             <div class="hero-stats">
               <div class="stat-card reveal">
@@ -67,14 +75,14 @@
               </div>
             </div>
             
-            <div class="hero-form-container reveal" style="margin-top: 2rem;">
+            <div class="hero-form-container reveal">
               <form class="hero-quick-quote quote-form">
                 <div class="hero-form-grid">
                   <input type="text" placeholder="Full Name" required>
                   <input type="tel" placeholder="Contact Number" required>
                   <input type="text" placeholder="Desired Vehicle" required id="hero-car-interest">
                 </div>
-                <button type="submit" class="btn btn-primary open-quote" style="width: 100%; margin-top: 1rem; padding: 1.2rem;">SECURE ALLOCATION</button>
+                <button type="submit" class="btn btn-primary open-quote hero-submit">SECURE ALLOCATION</button>
 
               </form>
               <div class="hero-form-footer">
@@ -119,7 +127,7 @@
 
       <!-- Scroll Reveal Section -->
       <section class="scroll-reveal-section">
-        <div class="reveal-car-bg" style="background-image: url('/images/hero-porsche.png');"></div>
+        <div class="reveal-car-bg"></div>
         <div class="container">
           <div class="reveal-content">
             <span class="subtitle">Precision Engineering</span>
@@ -134,7 +142,7 @@
       <!-- Body Styles Grid -->
 
       <section class="section container">
-        <div class="section-header" style="text-align: center; display: block;">
+        <div class="section-header centered-header">
           <span class="subtitle">The Collection</span>
           <h2>DEFINING <span>LIFESTYLE</span></h2>
         </div>
@@ -169,10 +177,10 @@
 
       <section class="section bg-alt">
         <div class="container">
-          <div class="section-header" style="text-align: center; display: block;">
+          <div class="section-header centered-header">
             <span class="subtitle">The Nine Star Protocol</span>
             <h2>THE <span>EXPERIENCE</span></h2>
-            <p style="margin: 0 auto; max-width: 600px;" class="luxury-serif">A seamless journey from initial consultation to final delivery.</p>
+            <p class="luxury-serif process-description">A seamless journey from initial consultation to final delivery.</p>
           </div>
 
           <div class="process-grid">
@@ -259,10 +267,10 @@
 
       <section class="section bg-alt" id="services">
         <div class="container">
-          <div class="section-header" style="text-align: center;">
+          <div class="section-header centered-header">
             <span class="subtitle">Bespoke Offerings</span>
             <h2>OUR <span>CAPABILITIES</span></h2>
-            <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);" class="luxury-serif">Comprehensive solutions tailored to your automotive requirements.</p>
+            <p class="luxury-serif capabilities-description">Comprehensive solutions tailored to your automotive requirements.</p>
           </div>
 
           <div class="services-grid">
@@ -296,7 +304,7 @@
             <div class="about-content">
               <span class="subtitle">Established 2018</span>
               <h2>THE NINE STAR <span>LEGACY</span></h2>
-              <p class="luxury-serif" style="font-size: 1.25rem;">Automotive excellence as a standard, not an option.</p>
+              <p class="luxury-serif about-intro">Automotive excellence as a standard, not an option.</p>
               <p>Nine Star Auto was conceived on the principle that the acquisition of a luxury vehicle should be as refined as the machine itself. We operate as your dedicated advocate, navigating global dealer networks to secure the exact specification you desire.</p>
 
               <div class="about-features">
@@ -326,7 +334,7 @@
 
       <section class="testimonials section bg-alt">
         <div class="container">
-          <div class="section-header" style="text-align: center;">
+          <div class="section-header centered-header">
             <span class="subtitle">Client Testimonials</span>
             <h2>VOICES OF <span>DISTINCTION</span></h2>
           </div>
@@ -380,10 +388,10 @@
               <i class="fas fa-star"></i> NINE STAR <span>AUTO</span>
             </div>
             <p>Professional auto brokerage services. We help you find the perfect vehicle at the best price with zero hassle.</p>
-            <div class="footer-map reveal" style="margin-top: 1.5rem; border-radius: 12px; overflow: hidden; height: 150px; border: 1px solid rgba(255,255,255,0.1);">
+            <div class="footer-map reveal">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
           <div class="footer-links">

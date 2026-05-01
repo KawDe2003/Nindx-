@@ -9,6 +9,7 @@ let appData = {
 
 // Fetch data from Sanity CMS
 async function initApp() {
+  showSkeletons();
   try {
     const carsQuery = `*[_type == "car"] | order(year desc)`;
     const galleryQuery = `*[_type == "galleryItem"] | order(_createdAt desc)`;
@@ -55,6 +56,9 @@ async function initApp() {
     renderGallery();
     setupGalleryFilters();
     initCustomSelects();
+    
+    // Hide preloader after everything is ready
+    hidePreloader();
   } catch (error) {
     console.warn('Sanity error, falling back to local data:', error);
     try {
@@ -67,9 +71,22 @@ async function initApp() {
       renderGallery();
       setupGalleryFilters();
       initCustomSelects();
+      hidePreloader();
     } catch (localError) {
       console.error('Total data failure:', localError);
+      hidePreloader(); // Hide anyway to show fallback UI or error
     }
+  }
+}
+
+function hidePreloader() {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.classList.add('hidden');
+    // Trigger Hero Animation after preloader starts fading
+    setTimeout(() => {
+      document.querySelector('.hero-title')?.classList.add('active');
+    }, 500);
   }
 }
 
@@ -130,6 +147,21 @@ function renderHotDeals() {
   `}).join('');
   
   observeElements();
+}
+
+function showSkeletons() {
+  const listingsContainer = document.getElementById('car-listings');
+  if (!listingsContainer) return;
+
+  const skeletonHtml = `
+    <div class="car-card-skeleton">
+      <div class="skeleton sk-img"></div>
+      <div class="skeleton sk-title"></div>
+      <div class="skeleton sk-text"></div>
+      <div class="skeleton sk-price"></div>
+    </div>
+  `;
+  listingsContainer.innerHTML = skeletonHtml.repeat(6);
 }
 
 // Render Gallery with optional filter
@@ -287,15 +319,26 @@ window.addEventListener('scroll', () => {
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const scrolled = (winScroll / height) * 100;
   if (progressBar) progressBar.style.width = scrolled + '%';
+
+  // Hero Parallax
+  const heroImage = document.querySelector('.hero-image');
+  if (heroImage) {
+    const speed = 0.5;
+    heroImage.style.transform = `translateY(${window.scrollY * speed}px)`;
+  }
 });
 
 // Magnetic Buttons
-document.querySelectorAll('.btn-primary').forEach(btn => {
+document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
   btn.addEventListener('mousemove', (e) => {
     const rect = btn.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.02)`;
+    btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    
+    // Magnetic pull for text/icon inside
+    const content = btn.innerHTML;
+    if (!btn.dataset.originalContent) btn.dataset.originalContent = content;
   });
   
   btn.addEventListener('mouseleave', () => {
@@ -474,36 +517,56 @@ const dot = document.getElementById('cursor-dot');
 
 if (cursor && dot) {
   document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    dot.style.left = e.clientX + 'px';
-    dot.style.top = e.clientY + 'px';
+    // Smoother cursor movement
+    requestAnimationFrame(() => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+    });
   });
 
   const interactiveElements = document.querySelectorAll('a, button, .car-card, .service-card, .style-card');
   interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    el.addEventListener('mouseenter', () => {
+      document.body.classList.add('cursor-hover');
+      if (el.classList.contains('gallery-item')) {
+        cursor.setAttribute('data-text', 'VIEW');
+        cursor.classList.add('cursor-view');
+      }
+    });
+    el.addEventListener('mouseleave', () => {
+      document.body.classList.remove('cursor-hover');
+      cursor.setAttribute('data-text', '');
+      cursor.classList.remove('cursor-view');
+    });
   });
 }
 
 // 3D Card Tilt Effect
 function applyCardTilt() {
-  document.querySelectorAll('.car-card, .service-card').forEach(card => {
+  document.querySelectorAll('.car-card, .service-card, .style-card, .stat-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
+      
+      const rotateX = (y - centerY) / 15;
+      const rotateY = (centerX - x) / 15;
       
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+      
+      // Dynamic shine effect
+      const shineX = (x / rect.width) * 100;
+      const shineY = (y / rect.height) * 100;
+      card.style.background = `radial-gradient(circle at ${shineX}% ${shineY}%, rgba(250, 204, 21, 0.1) 0%, var(--surface-color) 80%)`;
     });
 
     card.addEventListener('mouseleave', () => {
       card.style.transform = '';
+      card.style.background = '';
     });
   });
 }

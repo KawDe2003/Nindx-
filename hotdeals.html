@@ -1,125 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hot Deals | Nine Star Auto</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  </head>
-  <body>
-    <header id="header" class="scrolled">
-      <div class="container">
-        <nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hot Deals | Nine Star Auto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <header id="header" class="scrolled">
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <i class="fas fa-star"></i> NINE STAR <span>AUTO</span>
+        </div>
+        <button class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/hotdeals.html" class="active">Hot Deals</a></li>
+          <li><a href="/gallery.html">Gallery</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact Us</a></li>
+        </ul>
+        <button class="btn btn-primary open-quote">Request Quote</button>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    <section class="section container">
+      <div class="section-header">
+        <span class="subtitle">Exclusive Offers</span>
+        <h2>HOT DEALS</h2>
+        <p>Hand-picked premium vehicles at competitive pricing.</p>
+      </div>
+
+      <div class="deals-grid" id="car-listings">
+        <!-- Car cards will be injected by JS -->
+        <div class="loading-spinner">
+          <i class="fas fa-circle-notch fa-spin"></i>
+          <p>Loading the latest deals...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
           <div class="logo">
             <i class="fas fa-star"></i> NINE STAR <span>AUTO</span>
           </div>
-          <button class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
-          </button>
-          <ul class="nav-links">
+          <p>Professional auto brokerage services. We help you find the perfect vehicle at the best price with zero
+            hassle.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/hotdeals.html" class="active">Hot Deals</a></li>
+            <li><a href="/hotdeals.html">Hot Deals</a></li>
             <li><a href="/gallery.html">Gallery</a></li>
             <li><a href="/#services">Services</a></li>
-            <li><a href="/#about">About</a></li>
             <li><a href="/#contact">Contact Us</a></li>
           </ul>
-          <button class="btn btn-primary open-quote">Request Quote</button>
-        </nav>
-      </div>
-    </header>
-
-    <main style="padding-top: 100px;">
-      <section class="section container">
-        <div class="section-header">
-          <span class="subtitle">Exclusive Offers</span>
-          <h2>HOT DEALS</h2>
-          <p>Hand-picked premium vehicles at competitive pricing.</p>
         </div>
-
-        <div class="deals-grid" id="car-listings">
-          <!-- Car cards will be injected by JS -->
-          <div class="loading-spinner">
-            <i class="fas fa-circle-notch fa-spin"></i>
-            <p>Loading the latest deals...</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="logo">
-              <i class="fas fa-star"></i> NINE STAR <span>AUTO</span>
-            </div>
-            <p>Professional auto brokerage services. We help you find the perfect vehicle at the best price with zero hassle.</p>
-          </div>
-          <div class="footer-links">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/hotdeals.html">Hot Deals</a></li>
-              <li><a href="/gallery.html">Gallery</a></li>
-              <li><a href="/#services">Services</a></li>
-              <li><a href="/#contact">Contact Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-contact" id="contact">
-            <h4>Contact Info</h4>
-            <p><i class="fas fa-phone"></i> +1 123 123 1234</p>
-            <p><i class="fas fa-envelope"></i> contact@ninestarauto.com</p>
-            <p><i class="fas fa-location-dot"></i> 123 Star Way, City Name, New York</p>
-          </div>
-        </div>
-        <div class="copyright">
-          &copy; 2024 Nine Star Auto. All rights reserved.
+        <div class="footer-contact" id="contact">
+          <h4>Contact Info</h4>
+          <p><i class="fas fa-phone"></i> +1 123 123 1234</p>
+          <p><i class="fas fa-envelope"></i> contact@ninestarauto.com</p>
+          <p><i class="fas fa-location-dot"></i> 123 Star Way, City Name, New York</p>
         </div>
       </div>
-    </footer>
-
-    <!-- Quote Modal -->
-    <div class="modal-overlay" id="quote-modal">
-      <div class="modal">
-        <button class="modal-close">&times;</button>
-        <div class="modal-body">
-          <h2>INSTANT QUOTE</h2>
-          <p>Fill in the details below to get a professional brokerage quote for your dream vehicle.</p>
-          <form class="quote-form">
-            <div class="form-grid">
-              <div class="form-group">
-                <label>First Name</label>
-                <input type="text" placeholder="Enter first name" required>
-              </div>
-              <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" placeholder="Enter last name" required>
-              </div>
-              <div class="form-group">
-                <label>Contact Number</label>
-                <input type="tel" placeholder="Enter contact number" required>
-              </div>
-              <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="Enter email address" required>
-              </div>
-              <div class="form-group">
-                <label>Make</label>
-                <input type="text" id="quote-make" placeholder="e.g. Nissan" required>
-              </div>
-              <div class="form-group">
-                <label>Model</label>
-                <input type="text" id="quote-model" placeholder="e.g. Rogue" required>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Submit Request</button>
-          </form>
-        </div>
+      <div class="copyright">
+        &copy; 2024 Nine Star Auto. All rights reserved.
       </div>
     </div>
+  </footer>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <!-- Quote Modal -->
+  <div class="modal-overlay" id="quote-modal">
+    <div class="modal">
+      <button class="modal-close">&times;</button>
+      <div class="modal-body">
+        <h2>INSTANT QUOTE</h2>
+        <p>Fill in the details below to get a professional brokerage quote for your dream vehicle.</p>
+        <form class="quote-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Enter last name" required>
+            </div>
+            <div class="form-group">
+              <label>Contact Number</label>
+              <input type="tel" placeholder="Enter contact number" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="Enter email address" required>
+            </div>
+            <div class="form-group">
+              <label>Make</label>
+              <input type="text" id="quote-make" placeholder="e.g. Nissan" required>
+            </div>
+            <div class="form-group">
+              <label>Model</label>
+              <input type="text" id="quote-model" placeholder="e.g. Rogue" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

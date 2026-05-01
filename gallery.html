@@ -7,8 +7,16 @@
     <title>Gallery - Nine Star Auto | Premium Vehicle Brokerage</title>
     <meta name="description" content="View our premium vehicle gallery." />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/src/preloader.css" />
   </head>
   <body>
+    <!-- Luxury Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="preloader-logo">NINE STAR <span>AUTO</span></div>
+      <div class="preloader-line"></div>
+      <div class="preloader-text">Loading Experience</div>
+    </div>
+    
     <header id="header">
       <div class="container">
         <nav>
@@ -32,17 +40,17 @@
     </header>
 
     <main>
-      <section class="section" style="padding-top: 150px;">
+      <section class="section gallery-section">
         <div class="container">
           <div class="section-header reveal">
             <div>
               <span class="subtitle">Premium Inventory</span>
               <h2>VEHICLE <span>GALLERY</span></h2>
             </div>
-            <p style="color: var(--text-secondary); max-width: 500px; text-align: right;">Browse our collection of high-end vehicles that we've sourced for our premium clientele.</p>
+            <p class="gallery-description">Browse our collection of high-end vehicles that we've sourced for our premium clientele.</p>
           </div>
           
-          <div class="gallery-filters" style="margin-bottom: 2rem; display: flex; gap: 1rem; justify-content: center;">
+          <div class="gallery-filters-container">
              <button class="btn btn-outline active">All</button>
              <button class="btn btn-outline">Luxury</button>
              <button class="btn btn-outline">SUVs</button>
@@ -142,9 +150,9 @@
 
     <!-- Gallery Lightbox Modal -->
     <div class="modal-overlay" id="lightbox-modal">
-      <div class="modal" style="background: transparent; border: none; box-shadow: none; max-width: 900px; display: flex; align-items: center; justify-content: center;">
-        <button class="modal-close" id="lightbox-close" style="top: -2rem; right: -2rem; background: rgba(255,255,255,0.1);">&times;</button>
-        <img id="lightbox-img" src="" alt="Gallery Image" style="max-width: 100%; max-height: 80vh; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+      <div class="modal lightbox-modal">
+        <button class="modal-close" id="lightbox-close">&times;</button>
+        <img id="lightbox-img" src="" alt="Gallery Image">
       </div>
     </div>
 
