@@ -340,6 +340,16 @@ nav {
   background-size: 1rem;
 }
 
+.filter-group select option {
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.filter-group select:focus option:checked {
+  background: var(--accent-color) !important;
+  color: #000 !important;
+}
+
 .deals-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -752,6 +762,16 @@ nav {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1.2rem;
+}
+
+.form-group select option {
+  background: #121212;
+  color: #fff;
+}
+
+.form-group select:focus option:checked {
+  background: var(--accent-color) !important;
+  color: #000 !important;
 }
 
 .form-group input:focus, .form-group select:focus {
