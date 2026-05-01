@@ -1,4 +1,5 @@
 import './style.css'
+import { client, urlFor } from './sanity.js'
 
 // Global state for data
 let appData = {
@@ -6,17 +7,43 @@ let appData = {
   gallery: []
 };
 
-// Fetch data from local JSON
+// Fetch data from Sanity CMS
 async function initApp() {
   try {
-    const response = await fetch('/data.json');
-    appData = await response.json();
+    const carsQuery = `*[_type == "car"] | order(year desc)`;
+    const galleryQuery = `*[_type == "galleryItem"] | order(_createdAt desc)`;
+    
+    const [hotDeals, gallery] = await Promise.all([
+      client.fetch(carsQuery),
+      client.fetch(galleryQuery)
+    ]);
+
+    // Format data for the existing templates
+    appData.hotDeals = hotDeals.map(car => ({
+      name: car.make,
+      trim: car.model,
+      specs: {
+        months: '36 Mos',
+        mileage: '10k Mi/Yr',
+        down: '$0 Down',
+        msrp: 'MSRP'
+      },
+      price: car.price,
+      image: car.image ? urlFor(car.image).url() : 'https://placehold.co/600x400/111/333?text=No+Image',
+      featured: car.featured
+    }));
+
+    appData.gallery = gallery.map(item => ({
+      title: item.title,
+      category: 'Recent Delivery',
+      image: item.image ? urlFor(item.image).url() : 'https://placehold.co/600x400/111/333?text=No+Image'
+    }));
     
     renderHotDeals();
     renderGallery();
     setupGalleryFilters();
   } catch (error) {
-    console.error('Error loading data:', error);
+    console.error('Error loading data from Sanity:', error);
   }
 }
 
