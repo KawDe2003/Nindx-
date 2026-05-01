@@ -6,7 +6,7 @@
       "trim": "AWD Premium",
       "price": 389,
       "featured": true,
-      "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=800",
+      "image": "/images/deal-nissan.png",
       "specs": {
         "months": "36 Mo",
         "mileage": "10K Mi",
@@ -34,7 +34,7 @@
       "trim": "M Sport Package",
       "price": 899,
       "featured": true,
-      "image": "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800",
+      "image": "/images/hero-bmw.png",
       "specs": {
         "months": "36 Mo",
         "mileage": "7.5K Mi",
@@ -48,7 +48,7 @@
       "trim": "Long Range AWD",
       "price": 520,
       "featured": false,
-      "image": "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&q=80&w=800",
+      "image": "/images/hero-tesla.png",
       "specs": {
         "months": "48 Mo",
         "mileage": "10K Mi",
@@ -96,13 +96,13 @@
       "id": 2,
       "title": "Mercedes-Benz G63 AMG",
       "category": "SUVs",
-      "image": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&q=80&w=1200"
+      "image": "/images/hero-mercedes.png"
     },
     {
       "id": 3,
       "title": "Porsche 911 GT3",
       "category": "Sports",
-      "image": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200"
+      "image": "/images/hero-porsche.png"
     },
     {
       "id": 4,
@@ -144,22 +144,22 @@
   "heroSlides": [
     {
       "id": 1,
-      "image": "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=1200",
+      "image": "/images/hero-bmw.png",
       "alt": "Luxury BMW X5"
     },
     {
       "id": 2,
-      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200",
+      "image": "/images/hero-porsche.png",
       "alt": "Porsche 911 GT3"
     },
     {
       "id": 3,
-      "image": "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&q=80&w=1200",
+      "image": "/images/hero-tesla.png",
       "alt": "Tesla Model Y"
     },
     {
       "id": 4,
-      "image": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&q=80&w=1200",
+      "image": "/images/hero-mercedes.png",
       "alt": "Mercedes-Benz G-Wagon"
     }
   ]
