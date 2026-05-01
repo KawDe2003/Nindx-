@@ -450,19 +450,24 @@ nav {
 
 .stat-card i {
   color: var(--accent-color);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 0.75rem;
   display: block;
+  opacity: 0.9;
 }
 
 .stat-card h3 {
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
 }
 
 .stat-card p {
   color: var(--text-secondary);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.01em;
+  opacity: 0.8;
 }
 
 .subtitle {
@@ -2629,12 +2634,12 @@ footer {
 }
 
 .glass-pill {
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  padding: 0.35rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.3rem 0.85rem;
   border-radius: 50px;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   letter-spacing: 0.1em;
   font-weight: 800;
   display: inline-flex;
