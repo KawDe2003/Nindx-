@@ -55,6 +55,18 @@ function renderHotDeals() {
   // Sort featured items to the top
   const sortedDeals = [...appData.hotDeals].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
 
+  if (sortedDeals.length === 0) {
+    listingsContainer.innerHTML = `
+      <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem; background: var(--bg-alt); border-radius: 12px; border: 1px dashed var(--border-color);">
+        <i class="fas fa-car-side" style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem; opacity: 0.5;"></i>
+        <h3>No Hot Deals Currently Available</h3>
+        <p style="color: var(--text-secondary);">We are currently updating our inventory. Check back soon or contact us for custom sourcing!</p>
+        <button class="btn btn-primary open-quote" style="margin-top: 1.5rem;">Request Custom Sourcing</button>
+      </div>
+    `;
+    return;
+  }
+
   listingsContainer.innerHTML = sortedDeals.map(car => `
     <div class="car-card reveal ${car.featured ? 'featured' : ''}">
       ${car.featured ? '<div class="featured-badge"><i class="fas fa-crown"></i> Featured</div>' : ''}
@@ -91,6 +103,17 @@ function renderGallery(filter = 'All') {
   const filteredItems = filter === 'All' 
     ? appData.gallery 
     : appData.gallery.filter(item => item.category === filter);
+
+  if (filteredItems.length === 0) {
+    galleryContainer.innerHTML = `
+      <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem;">
+        <i class="fas fa-images" style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem; opacity: 0.5;"></i>
+        <h3>Gallery Empty</h3>
+        <p style="color: var(--text-secondary);">Images of our latest deliveries are coming soon!</p>
+      </div>
+    `;
+    return;
+  }
 
   galleryContainer.innerHTML = filteredItems.map(item => `
     <div class="gallery-item reveal">
@@ -185,9 +208,9 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     quoteModal.classList.add('active');
   }
-  if (e.target.classList.contains('modal-close')) {
+  if (e.target.classList.contains('modal-close') || e.target.classList.contains('modal-overlay')) {
     quoteModal.classList.remove('active');
-    lightboxModal?.classList.remove('active');
+    document.getElementById('lightbox-modal')?.classList.remove('active');
   }
 });
 
