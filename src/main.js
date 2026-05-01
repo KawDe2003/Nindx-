@@ -511,38 +511,6 @@ function initHeroSlider() {
   if (!container || !appData.heroSlides) return;
 // --- Final Polish Interactions ---
 
-// Custom Cursor Logic
-const cursor = document.getElementById('custom-cursor');
-const dot = document.getElementById('cursor-dot');
-
-if (cursor && dot) {
-  document.addEventListener('mousemove', (e) => {
-    // Smoother cursor movement
-    requestAnimationFrame(() => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      dot.style.left = e.clientX + 'px';
-      dot.style.top = e.clientY + 'px';
-    });
-  });
-
-  const interactiveElements = document.querySelectorAll('a, button, .car-card, .service-card, .style-card');
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      document.body.classList.add('cursor-hover');
-      if (el.classList.contains('gallery-item')) {
-        cursor.setAttribute('data-text', 'VIEW');
-        cursor.classList.add('cursor-view');
-      }
-    });
-    el.addEventListener('mouseleave', () => {
-      document.body.classList.remove('cursor-hover');
-      cursor.setAttribute('data-text', '');
-      cursor.classList.remove('cursor-view');
-    });
-  });
-}
-
 // 3D Card Tilt Effect
 function applyCardTilt() {
   document.querySelectorAll('.car-card, .service-card, .style-card, .stat-card').forEach(card => {

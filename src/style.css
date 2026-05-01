@@ -2648,56 +2648,6 @@ footer {
   transform: translateY(0);
 }
 
-/* --- Custom Luxury Cursor --- */
-#custom-cursor {
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--accent-color);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 99999;
-  transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-
-#cursor-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--accent-color);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-
-body:hover #custom-cursor,
-body:hover #cursor-dot {
-  display: block;
-}
-
-.cursor-hover #custom-cursor {
-  width: 80px;
-  height: 80px;
-  background-color: rgba(250, 204, 21, 0.1);
-  border-color: transparent;
-}
-
-#custom-cursor.cursor-view::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 0.6rem;
-  font-weight: 900;
-  color: var(--accent-color);
-  letter-spacing: 0.2em;
-}
-
 /* --- Final Visual Polish --- */
 .glass-glow {
   position: relative;
